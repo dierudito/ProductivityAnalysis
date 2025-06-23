@@ -17,7 +17,7 @@ def preprocess_data(df_time_entries, df_activities):
     # --- Activities Preprocessing ---
     df_activities['Duration'] = df_activities['EndDate'] - df_activities['StartDate']
     df_activities['Duration_Hours'] = df_activities['Duration'].dt.total_seconds() / 3600
-
+    df_activities['DayOfWeek'] = df_activities['StartDate'].dt.day_name()
     df_activities['Description'] = df_activities['Description'].fillna('')
     
     # Now, create the new 'ActivityLabel' column.
