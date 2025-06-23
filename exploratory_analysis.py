@@ -20,8 +20,7 @@ def run_analysis():
     # --- Analysis Question 1: Which activities take the most time? ---
     print("\n--- Analyzing Activity Durations ---")
     
-    # Group by activity description and sum the hours
-    activity_total_hours = clean_activities.groupby('Description')['Duration_Hours'].sum().sort_values(ascending=False)
+    activity_total_hours = clean_activities.groupby('ActivityLabel')['Duration_Hours'].sum().sort_values(ascending=False)
     
     print("Total hours per activity:")
     print(activity_total_hours.head(10)) # Print top 10
